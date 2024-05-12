@@ -1,16 +1,1 @@
-# DockerLabsWriteUps
-
-
-Dockerlabs Writeup - https://dockerlabs.es/#/
-Dificulty - Very Easy
-
-#identification of open ports
-
-```shell
-
-________________________________________________
-
-PORT    STATE SERVICE REASON
-80/tcp  open  http  syn-ack
-```
 
