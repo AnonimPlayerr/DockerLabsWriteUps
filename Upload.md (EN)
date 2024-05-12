@@ -4,9 +4,13 @@
 Dockerlabs Writeup - https://dockerlabs.es/#/
 Dificulty - Very Easy
 
-Frist I shearch open ports with Nmap
+#identification of open ports
 
 ```shell
-sudo nmap -sS -sC -sV -p- -n --min-rate 5000 172.17.0.2
 
-```shell
+________________________________________________
+
+PORT    STATE SERVICE REASON
+80/tcp  open  http  syn-ack
+```
+
