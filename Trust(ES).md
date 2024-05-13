@@ -1,8 +1,6 @@
 #Trust DockerLabs - 13/05/2024
 
 #web - https://dockerlabs.es/#/
-# whoami
-root
 
 Empezamos realizando un escaneo basico con nmap.
 
@@ -28,6 +26,10 @@ Nmap done: 1 IP address (1 host up) scanned in 8.34 seconds
 ```
 
 Aqui encontramos un puerto 22 y un puerto 80 me meto en la direccion web "http://172.17.0.2/" y se ve que es una pagina de apache:
+
+![Captura de pantalla 2024-05-13 224854](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/44dee495-8746-4af4-94f8-e41c76ea6cf1)
+
+Buscamos subdominios con gobuster
 
 ```shell
 └─$ gobuster dir -u "http://172.17.0.2/" -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,txt,py,bak,php.bak 
@@ -61,6 +63,7 @@ Finished
 
 Encontramos un ficher .php llamado "secret.php" accedo a este fichero y se ve una pagina donde habla de un usuario "mario":
 
+![Captura de pantalla 2024-05-13 225146](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/5b429c97-e09e-4c60-b278-b66b21533728)
 
 Hacemos un ataque de fuerza bruta con hydra hacia el servidor ssh con el usuario mario:
 
@@ -114,11 +117,13 @@ User mario may run the following commands on eb21e3cbaf4b:
 
 ```
 
-Vemos que podemos ejecutar root sin contraseña entonces procedemos a la escalada de privilegios:
+Vemos que podemos ejecutar root sin contraseña entonces procedemos a la escalada de privilegios.
+Entramos en "https://gtfobins.github.io/#" una pagina web dedicada a la explotacion de estos bins entre otras cosas:
+Buscamos "vim" y entramos en "sudo":
 
-Entramos en "https://gtfobins.github.io/#" una pagina web dedicada a la explotacion de estos bins entre otras cosas
+![Captura de pantalla 2024-05-13 225938](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/9064fe61-5dda-4bf0-b772-66125e1afe4e)
 
-Buscamos "vim" y entramos en "sudo"
+![Captura de pantalla 2024-05-13 225938](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/9064fe61-5dda-4bf0-b772-66125e1afe4e)
 
 Ejecutamos el comando y vemos que ya somos root:
 
