@@ -111,3 +111,8 @@ Execute the web command:
 ```shell
 sudo env /bin/sh
 ```
+
+```shell
+# whoami
+root
+```
