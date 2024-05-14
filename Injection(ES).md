@@ -2,7 +2,7 @@
 
 #web - https://dockerlabs.es/#/
 
-Empezamos con un escaneo basico de nmap:
+Empezamos con un escaneo básico de nmap:
 
 ```shell
 └─$ nmap -sVC -p- -n --min-rate 5000 172.17.0.2
@@ -57,7 +57,7 @@ Intentamos bypassearlo utilizando la vunerabilidad "sql injection":
 
 ![Captura de pantalla 2024-05-14 195628](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/5da299de-f3ce-4ad0-a18f-b7c21ab565af)
 
-Logramos bypassearlo y vemos un usuario "Dylan" y una contraseña "KJSDFG789FGSDF78":
+Logramos bypassearlo y vemos un usuario "dylan" y una contraseña "KJSDFG789FGSDF78":
 
 ![Captura de pantalla 2024-05-14 195654](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/6d613173-33fe-46f4-9d63-420a7895c706)
 
