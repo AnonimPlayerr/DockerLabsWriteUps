@@ -27,9 +27,11 @@ Nmap done: 1 IP address (1 host up) scanned in 7.92 seconds
 ```
 Accedemos a la web y vemos una pagina web en blanco:
 
+![Captura de pantalla 2024-05-14 221852](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/3d24462b-04c5-47ac-a9dd-8fbb2ffad74a)
 
 Nos metemos a ver el codigo y vemos dos posibles usuarios "camilo" y "juan":
 
+![Captura de pantalla 2024-05-14 221917](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/1c1ead82-09cc-430f-8a62-ea8e21e6c9c7)
 
 Creamos un archivo .txt con estos dos usuarios:
 (Camilo es el usuario con el que hacer el ataque de fuerza bruta ponerlo el primero para que sea más rápido)
@@ -38,6 +40,7 @@ Creamos un archivo .txt con estos dos usuarios:
 └─$ nano users.txt
 ```
 
+![Captura de pantalla 2024-05-14 224207](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/c6797580-33ad-49c4-998a-0ee01d6fea2f)
 
 Procedemos al ataque de fuerza bruta con hydra:
 
