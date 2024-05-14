@@ -25,7 +25,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 7.92 seconds
 
 ```
-Accedemos a la web y vemos una pagina web en blanco:
+Accedemos a la web y vemos una página web en blanco:
 
 ![Captura de pantalla 2024-05-14 221852](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/3d24462b-04c5-47ac-a9dd-8fbb2ffad74a)
 
@@ -94,7 +94,7 @@ camilo@d3c3148a6872:~$ find / -perm -4000 -user root 2>/dev/null
 
 ```
 
-Viajamos entre directorios para ver que podemos encontrar vamos hasta "/home" y si hacemos ls vemos un direcorio llamado "var" entramos y encontramos otro llamado "mail" dentro hay otro que se llama "camilo"  y dentro encontramos un archivo "mail.txt" hacemos un cat y esto es lo que vemos:
+Viajamos entre directorios para ver que podemos encontrar vamos hasta "/home" y si hacemos "ls" vemos un direcorio llamado "var" entramos y encontramos otro llamado "mail" dentro hay otro que se llama "camilo"  y dentro encontramos un archivo "mail.txt" hacemos un "cat" y esto es lo que vemos:
 
 ```shell
 camilo@d3c3148a6872:/var/mail/camilo$ cat correo.txt
