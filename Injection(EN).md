@@ -57,7 +57,7 @@ We tried to bypass it by using the vunerability "sql injection":
 
 ![Captura de pantalla 2024-05-14 195628](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/5da299de-f3ce-4ad0-a18f-b7c21ab565af)
 
-We manage to bypass it and see a user "Dylan" and a password "KJSDFG789FGSDF78":
+We manage to bypass it and see a user "dylan" and a password "KJSDFG789FGSDF78":
 
 ![Captura de pantalla 2024-05-14 195654](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/6d613173-33fe-46f4-9d63-420a7895c706)
 
