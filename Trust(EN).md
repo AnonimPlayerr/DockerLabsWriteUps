@@ -117,9 +117,10 @@ User mario may run the following commands on eb21e3cbaf4b:
 
 ```
 
-We see that we can run root without a password so we proceed to privilege escalation.
-We enter ‘https://gtfobins.github.io/#’ a website dedicated to the exploitation of these bins among other things:
-Search for ‘vim’ and enter ‘sudo’:
+We see that we can escalate privileges through the /usr/bin/vim binary.
+We go to ‘https://gtfobins.github.io/#’ a website dedicated to exploiting these bins among other things.
+Search for ‘vim’ and enter ‘sudo’.
+Proceed with the privilege escalation:
 
 ![Captura de pantalla 2024-05-13 225938](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/9064fe61-5dda-4bf0-b772-66125e1afe4e)
 
