@@ -2,7 +2,7 @@
 
 #web - https://dockerlabs.es/#/
 
-Empezamos realizando un escaneo basico con nmap.
+Empezamos realizando un escaneo básico con nmap.
 
 ```shell
 └─$ nmap -sV -sC -n -p- --min-rate 5000 172.17.0.2                                          
@@ -25,7 +25,7 @@ Nmap done: 1 IP address (1 host up) scanned in 8.34 seconds
 
 ```
 
-Aqui encontramos un puerto 22 y un puerto 80 me meto en la direccion web "http://172.17.0.2/" y se ve que es una pagina de apache:
+Aquí encontramos un puerto 22 y un puerto 80 me meto en la direccion web "http://172.17.0.2/" y se ve que es una pagina de apache:
 
 ![Captura de pantalla 2024-05-13 224854](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/44dee495-8746-4af4-94f8-e41c76ea6cf1)
 
@@ -65,7 +65,7 @@ Encontramos un ficher .php llamado "secret.php" accedo a este fichero y se ve un
 
 ![Captura de pantalla 2024-05-13 225146](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/5b429c97-e09e-4c60-b278-b66b21533728)
 
-Hacemos un ataque de fuerza bruta con hydra hacia el servidor ssh con el usuario mario:
+Hacemos un ataque de fuerza bruta con hydra hacia el servidor ssh con el usuario "mario":
 
 ```shell
 └─$ hydra -l mario -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2/
@@ -117,9 +117,10 @@ User mario may run the following commands on eb21e3cbaf4b:
 
 ```
 
-Vemos que podemos ejecutar root sin contraseña entonces procedemos a la escalada de privilegios.
-Entramos en "https://gtfobins.github.io/#" una pagina web dedicada a la explotacion de estos bins entre otras cosas:
-Buscamos "vim" y entramos en "sudo":
+Vemos que podemos escalar privilegios a traves del binario /usr/bin/vim.
+Entramos en "https://gtfobins.github.io/#" una pagina web dedicada a la explotacion de estos bins entre otras cosas.
+Buscamos "vim" y entramos en "sudo".
+Procedemos con la escalada de privilegios:
 
 ![Captura de pantalla 2024-05-13 225938](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/9064fe61-5dda-4bf0-b772-66125e1afe4e)
 
