@@ -19,7 +19,7 @@ Nmap done: 1 IP address (1 host up) scanned in 3.02 seconds
 
 ```
 
-Encontramos un servidor ftp con la version "vsftpd 2.3.4", esta versión puede ser explotada con Metaexploit rapidamente:
+Encontramos un servidor ftp con la version "vsftpd 2.3.4", esta versión puede ser explotada con Metaexploit rápidamente:
 
 ```shell
 └─$ msfconsole
