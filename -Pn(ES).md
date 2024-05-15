@@ -123,7 +123,6 @@ Si nos fijamos bien podemos encontrar un panel de login:
 ![Captura de pantalla 2024-05-15 005242](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/45b0b2bf-4bd1-4a4f-988c-6191a990fc90)
 ![Captura de pantalla 2024-05-15 010522](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/dafa213a-5a85-4fb5-920a-e7e2e5426951)
 
-Contraseñas default de tomcat:
 
 # Apache Tomcat Default Credentials
 
