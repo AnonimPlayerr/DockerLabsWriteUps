@@ -87,7 +87,7 @@ carlota@172.17.0.2's password:
 Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.6.9-amd64 x86_64)
 ```
 
-I tried to do a ‘sudo -l’ and a ‘find / -perm -4000 -user root 2>/dev/null’ but nothing interesting.
+I tried to do a ‘sudo -l’ and a ‘find / -perm -4000 -user root 2>/dev/null’ but there is nothing exploitable.
 Searching through the directories we found:
 
 ```shell
